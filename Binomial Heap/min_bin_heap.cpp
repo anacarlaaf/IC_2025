@@ -42,7 +42,8 @@ void mergeTrees(binomialHeap *b1, binomialHeap *b2){
     node *i=b1->head, *j=b2->head, *aux, *st=NULL;
 
     // guardar o endereço do menor degree pra ser o novo b1->head;
-    if((i && j) && i->degree<=j->degree){
+    //cout << i << " " << j << "\n";
+    if((i && !j) || ((i && j) && i->degree<=j->degree)){
         aux=i;
         st=i;
         i=i->sibling;
@@ -185,9 +186,6 @@ void extractMin(binomialHeap *t){
     }
     t2.head=aux;
     if(!t->head) t->head = ext->sibling;
-    //if(t->head) cout << t->head->key << "t ";
-    //if(t2.head) cout << t2.head->key << "t2\n";
-    //cout << t->head << " " << t2.head;
     uniteBinomialHeaps(t, &t2);
     free(ext);
 }
@@ -208,17 +206,17 @@ int main(){
     //int v3[5] = {9, 3, 6, 12, 15}; // union ok
     //int v4[6] = {2, 8, 5, 10, 4, 7};
 
-    //int v5[8] = {5, 5, 5, 2, 2, 8, 8, 1}; // ?
+    int v5[8] = {5, 5, 5, 2, 2, 8, 8, 1}; // ok
 
     //int v6[1] = {42}; // ok
 
-    int v7[6] = {10, 8, 6, 4, 2, 0}; //?
+    //int v7[6] = {10, 8, 6, 4, 2, 0}; //ok
 
     //int v8[5] = {-3, -1, -5, -2, -4}; //ok
 
-    for(int i : v7) insert(&t1, i);
+    for(int i : v5) insert(&t1, i);
 
-    for(int i=0;i<6;i++){
+    for(int i=0;i<8;i++){
         cout << "Min: " << findMin(&t1)->key << "\n";
         extractMin(&t1);
     }
