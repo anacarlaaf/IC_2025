@@ -54,7 +54,7 @@ int32_t main()
 
     for(int i=1;i<=qtdVertices;i++) distancia[i] = INF;
 
-    dial(1, 5);
+    dial(1, (int)sqrt(pesoMax));
 
     for (int i = 1; i < qtdVertices + 1; i++) cout << distancia[i] << " ";
     cout << "\n";
