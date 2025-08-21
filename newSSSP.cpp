@@ -13,7 +13,7 @@ set<int> S, W, P, U;
 set<int> Wn[maxn], Un[maxn];
 vector<int> F[maxn];
 vector<pii> adj[maxn];
-int k, n;
+int k, n, M;
 int d[maxn];
 int dest[maxn];
 int sub[maxn];
@@ -28,9 +28,7 @@ void dfs(int st, int pai = -1){  // fazer iterativa depois?
     }
 }
 
-void initialize(int M, int B) {
-    
-}
+void initialize(int M, int B) {}
 
 void dell(int a, int b) {}
 
@@ -107,6 +105,8 @@ int baseCase(int B){
 int BMSSP(int l, int B){
     if (!l) return baseCase(B);
     findPivots(B);
+    initialize(M, B); // M = pow(2,l-1)
+
 
 
 }
