@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define int long long int
+#define int long long
 
 using namespace std;
 
@@ -33,7 +33,7 @@ void dial(int origem, int pesoMax)
             if (newDist < distancia[ver])
             {
                 buckets[newDist % pesoMax].push_back(ver); // atualizar posição nos buckets
-                distancia[ver] = newDist;                   // atualiza distancia
+                distancia[ver] = newDist;                  // atualiza distancia
             }
         }
     }

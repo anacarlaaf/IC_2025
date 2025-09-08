@@ -1,2 +1,0 @@
-
-    distancias[origem] = 0;
